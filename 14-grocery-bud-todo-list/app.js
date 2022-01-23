@@ -11,9 +11,15 @@ let editElement;
 let editFlag = false;
 let editID = "";
 // ****** EVENT LISTENERS **********
-
-// ****** FUNCTIONS **********
-
+//submit form
+form.addEventListener("submit", addItem);
+// ****** FUNCTIONS ********** 
+function addItem(e) {
+    e.preventDefault();
+    const value = grocery.value
+    const id = new Date().getTime().toString();
+    console.log(id);
+}
 // ****** LOCAL STORAGE **********
 
 // ****** SETUP ITEMS **********
