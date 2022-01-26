@@ -19,7 +19,7 @@ function addItem(e) {
   e.preventDefault();
   const value = grocery.value;
   if (value) {
-    console.log("value is truthy");
+    // console.log("value is truthy");
   }
 
   const id = new Date().getTime().toString();
@@ -86,7 +86,7 @@ function clearItems() {
   container.classList.remove("show-container");
   displayAlert("empty list", "danger");
   setBackToDefault();
-  // localStorage.removeItem('list');
+  localStorage.removeItem('list');
 }
 // delete function
 function deleteItem(e) {
@@ -99,7 +99,7 @@ function deleteItem(e) {
   displayAlert("item remove", "danger");
   setBackToDefault();
   // remove from local Storage
-  // removeFromLocalStorage(id);
+  removeFromLocalStorage(id);
 }
 // edit function
 function editItem(e) {
@@ -121,8 +121,37 @@ function setBackToDefault() {
 }
 // ****** LOCAL STORAGE **********
 function addToLocalStorage(id, value) {
-  console.log("added to local storage");
+  const grocery = { id, value };
+  let items = getlocalStorage();
+   console.log(items);
+
+  items.push(grocery);
+  localStorage.setItem("list", JSON.stringify(items));
+  // console.log("added to local storage");
 }
-function removeFromLocalStorage(id) {}
+function removeFromLocalStorage(id) {
+  let items = getlocalStorage();
+
+  items = items.filter(function (item){
+    if(item.id !==id){
+      return item;
+    }
+  })
+  localStorage.setItem("list", JSON.stringify(items));
+}
 function editLocalStorage(id, value) {}
+function getlocalStorage() {
+  return localStorage.getItem("list")
+    ? JSON.parse(localStorage.getItem("list"))
+    : [];
+}
+// localStorage API
+// setItem
+// getItem
+// removeItem
+// save as strings
+// localStorage.setItem("rice", JSON.stringify(["item", "item 2"]));
+// const rice = JSON.parse(localStorage.getItem("rice"));
+// console.log(rice);
+// localStorage.removeItem("rice")
 // ****** SETUP ITEMS **********
