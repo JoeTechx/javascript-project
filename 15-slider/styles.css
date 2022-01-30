@@ -277,6 +277,6 @@ Slider
   left: 300%;
 }
 .slide{
-  transform: translateX(-100%);
+  transform: translateX(0%);
 } */
 /* negative value moves to left */
