@@ -46,7 +46,6 @@ Variables
   --clr-black: #222;
   --ff-primary: "Roboto", sans-serif;
   --ff-secondary: "Open Sans", sans-serif;
-  --transition: all 0.3s linear;
   --spacing: 0.25rem;
   --radius: 0.5rem;
   --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -231,7 +230,7 @@ Questions
   margin-bottom: 0;
 }
 /* hide text */
- .question-text {
+.question-text {
   display: none;
 }
 .show-text .question-text {
@@ -245,4 +244,4 @@ Questions
 }
 .show-text .plus-icon {
   display: none;
-} 
+}
